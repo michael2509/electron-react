@@ -1,0 +1,41 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "description": "An electron react app ",
+  "homepage": "./",
+  "main": "./src/index.js",
+  "scripts": {
+    "build-renderer": "cd ../renderer; npm run build; cd ../main; mkdir -p ./build/html; cp -r ../renderer/build/* ./build/html",
+    "electron": "electron src",
+    "start": "wait-on http://localhost:3000 && NODE_ENV=dev nodemon --watch ./src/index.js --watch ./src/*.js --watch ./src/**/*.js --exec 'npm run electron'",
+    "dist": "npm run build-renderer; rm -rf dist/; NODE_ENV=prod electron-builder",
+    "dist-mac": "npm run build-renderer; rm -rf dist/; NODE_ENV=prod electron-builder --mac"
+  },
+  "keywords": [],
+  "author": "Michael De Madet",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^4.0.6",
+    "electron-builder": "^20.38.5",
+    "nodemon": "^1.18.10",
+    "wait-on": "^3.2.0"
+  },
+  "build": {
+    "appId": "com.electron-react",
+    "productName": "Electron-react",
+    "extraResources": [
+      "tmp/**/*",
+      "data/*.db",
+      "build/**/*"
+    ],
+    "files": [
+      "src/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    }
+  },
+  "dependencies": {
+    "mongoose": "^5.4.16"
+  }
+}

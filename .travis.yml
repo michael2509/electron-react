@@ -1,0 +1,40 @@
+os: osx
+osx_image: xcode9.4
+language: node_js
+node_js: "10"
+env:
+  - ELECTRON_CACHE=$HOME/.cache/electron
+  - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+addons:
+  chrome: stable
+
+cache:
+  directories:
+    - $HOME/.cache/electron
+    - $HOME/.cache/electron-builder
+    - $HOME/.npm/_prebuilds
+
+# These commands are executed before the scripts are executed
+install:
+  # Install all dependencies listed in your package.json file
+  - cd main
+  - npm install
+  - cd ../renderer
+  - npm install
+  - cd ../main
+
+script:
+  - npm run dist-mac
+
+before_deploy:
+  - cd dist
+
+deploy:
+  provider: releases
+  api_key:
+    secure: fQYiMwoKrmd3C6TS69SRCFkJcu/cxfZo3lPSPy9/14R3vhX4+JqanI4zOeM3OZO8Y9bLPi2zYrdRUhEE5PIleDy/WOk2y3Euvw2v1nVfNizmtPSuiVBTCRamjzl39x4NWI5NlXIpZ0BpfsykSx4Uc/EnO/fqwV37SpqpDHCxCxKi3Eep3itFdE3Vs+fWxUKocwWF33UUnDthmamWzporJHvq+Sejpww4sIqulx4fAuSZiG3frRoysS8DU5WXYfUe0aTrZcM739WQWpDP7UxCYsdX7g0GEWuLBO/jgp3esuDeFZGGPScUjDmeRUlloaNy8EyOiKPkrL+CD2/btWtCrJzIRTuIwGOxBfzpuEB20OGhu6QVzXxqab9BH1nXRtK8BfaDjgfbYI5mLEGo3d0waTeeH7GbtBoZdsDZo4G3aykEqvmk7+66bLsqrnxJg2qJQWm7NEWpmhUxY3vfJjvd8cdcZEOz9n9Zu4cnPx5EaWV/lf2aLkGtuL+rTaIDEv9/k6EfK1VRryPIKaqQDJlQS8ZeTc6sHdEXodzBoAfDg1OJlbFgOm1dO1UV8Uz5JHHA38eo9PdwuTYT2fzj52QRHteFp/rQAlUCEi2WuRwiEhsgtBarNs2Sq28F5+HHX+a50qRzIbrAQFqEOpZ/ZmgSpF8SSqUaDeGV8G3pAfCPNA0=
+  skip_cleanup: true
+  on:
+    tags: false
+    repo: michael2509/Electron-react-app
+    
