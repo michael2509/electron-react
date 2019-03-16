@@ -30,7 +30,7 @@ deploy:
   api_key:
     secure: Q/uGNLYDsq7/9HnQJH58JWR1qk5feivsQoUVMPKbR6ft2H3MWNaw10og0q2TR6ZQjQVKGOFWaXkKBgzUV3c0vKDrQFFoEzLfU7euC0mP/xD53w19PTXtefUco7vs3I0MxDBP3IbubzVBjHYUnir59brvc5ux0fUnilWeFxv1jY9veCqNSclie834uem/JTQ/A14LZZrkNFMtparwXJi5eV3eJJNaBz3gqBO6IVuJabIDv+xDLuYxj5KSFZZzRjrP+QsOYbRi7oXJRZgtoWWnQV1fmqvXGKfqnxefmAaLvhLMjIKVQLRLbNuVQlzhLNJ7dr4f/DjIdfJEcoDJHL2tXfUACbQvqtO3TLDXg1EKVl/cqPs7io71TklQ0gvClOVRjaYqw29v2M6UJQ/KRsxron2XSX8qa/wWZLZSzcKcKZYOSvcLKd5KQCa3hQNgFdDmg2Fq9eNblryf3/WqKcXPg0sj0bGeCGwgCu23HPdv2bKbApXLex3fL5Dr+zgV/VHCMBKk95I4v/+/8fbXWlP4m1xaCFIMzapQ9y7Uf+8fo3Mp02cHq/sMW7hrABFnFVKeGEA/WGNWN/IhTxmweqdcZch4be24jCVGSuuU2dSxayEOnFBKV0qK34/2EpdZVtmo/QMGWwhC+kFXEkSsDX2lpqKVZw/3pM3gAf3OVcgl40A=
   skip_cleanup: true
-  file: "release/Electron-react-1.0.0.dmg"
+  file: "Electron-react-1.0.0.dmg"
   on:
     tags: false
     repo: michael2509/electron-react
