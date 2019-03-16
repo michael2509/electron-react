@@ -5,9 +5,9 @@ const createMainWindow = (mainWindow) => {
       icon: __dirname + '/assets/app-icon.png',
       show: false,
       webPreferences: { // <--- (1) Additional preferences
-      nodeIntegration: false,
-      contextIsolation: false,
-      preload: __dirname + '/preload.js' // <--- (2) Preload script
+        nodeIntegration: false,
+        contextIsolation: false,
+        preload: __dirname + '/preload.js' // <--- (2) Preload script
     }});
 
     if (process.env.NODE_ENV === 'dev') {
@@ -15,11 +15,12 @@ const createMainWindow = (mainWindow) => {
         mainWindow.webContents.openDevTools();
     } else {
         mainWindow.loadURL(`file://${process.resourcesPath}/build/html/index.html`);
+        mainWindow.webContents.openDevTools();
     }
 
     mainWindow.once('ready-to-show', () => {
-      mainWindow.maximize();
       mainWindow.show();
+      mainWindow.maximize();
     })
 
     mainWindow.on('closed', () => mainWindow = null);
