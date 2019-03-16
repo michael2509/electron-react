@@ -9,8 +9,7 @@
     "electron": "electron src",
     "start": "wait-on http://localhost:3000 && NODE_ENV=dev nodemon --watch ./src/index.js --watch ./src/*.js --watch ./src/**/*.js --exec 'npm run electron'",
     "dist": "npm run build-renderer; rm -rf dist/; NODE_ENV=prod electron-builder",
-    "dist-mac": "npm run build-renderer; rm -rf dist/; NODE_ENV=prod electron-builder --mac --publish always",
-    "release": "npm run dist-mac && build"
+    "dist-mac": "npm run build-renderer; rm -rf dist/; NODE_ENV=prod electron-builder --mac --publish always"
   },
   "keywords": [],
   "author": "Michael De Madet",

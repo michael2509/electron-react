@@ -21,7 +21,7 @@ before_script:
   - npm install
   - cd ../main
 script:
-  - npm run release
+  - npm run dist-mac
   - ls
   - cd release
   - ls
@@ -32,5 +32,5 @@ deploy:
   skip_cleanup: true
   file: "release/Electron-react-1.0.0.dmg"
   on:
-    tags: true
+    tags: false
     repo: michael2509/electron-react
