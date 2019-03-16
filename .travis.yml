@@ -24,7 +24,6 @@ script:
   - ls
   - cd dist
   - ls
-
 deploy:
   provider: releases
   api_key:
