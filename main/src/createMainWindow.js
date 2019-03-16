@@ -15,7 +15,6 @@ const createMainWindow = (mainWindow) => {
         mainWindow.webContents.openDevTools();
     } else {
         mainWindow.loadURL(`file://${process.resourcesPath}/build/html/index.html`);
-        mainWindow.webContents.openDevTools();
     }
 
     mainWindow.once('ready-to-show', () => {
