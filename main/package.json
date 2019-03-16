@@ -8,8 +8,8 @@
     "build-renderer": "cd ../renderer; npm run build; cd ../main; mkdir -p ./build/html; cp -r ../renderer/build/* ./build/html",
     "electron": "electron src",
     "start": "wait-on http://localhost:3000 && NODE_ENV=dev nodemon --watch ./src/index.js --watch ./src/*.js --watch ./src/**/*.js --exec 'npm run electron'",
-    "dist": "npm run build-renderer; rm -rf dist2/; NODE_ENV=prod electron-builder",
-    "dist-mac": "npm run build-renderer; rm -rf dist2/; NODE_ENV=prod electron-builder --mac"
+    "dist": "npm run build-renderer; rm -rf dist/; NODE_ENV=prod electron-builder",
+    "dist-mac": "npm run build-renderer; rm -rf dist/; NODE_ENV=prod electron-builder --mac --publish always"
   },
   "keywords": [],
   "author": "Michael De Madet",
@@ -33,6 +33,9 @@
     ],
     "mac": {
       "category": "public.app-category.developer-tools"
+    },
+    "directories": {
+      "output": "release"
     }
   },
   "dependencies": {

@@ -15,13 +15,13 @@ cache:
   - "$HOME/.cache/electron-builder"
   - "$HOME/.npm/_prebuilds"
 before_script:
-- cd main
-- npm install
-- cd ../renderer
-- npm install
-- cd ../main
+  - cd main
+  - npm install
+  - cd ../renderer
+  - npm install
+  - cd ../main
 script:
-- npm run dist-mac
+  - npm run dist-mac
 deploy:
   provider: releases
   api_key:
